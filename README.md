@@ -1,4 +1,4 @@
-# Actor
+# Continuation
 Handle callbacks in continuation
 
 ### NOTE
