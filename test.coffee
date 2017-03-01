@@ -1,30 +1,21 @@
 {K} = require './Continuation.coffee'
 
-gen = (k, v...)->
+task1 = (ret)->
 	setTimeout ->
-		k 'test'
-	, 10
+		ret 'something'
+	, 100
 
-mod1 = (k, v)->
-	k v + ' mod1'
-
-mod2 = (k, v)->
+task2 = (ret, v)->
+	console.log v
 	setTimeout ->
-		k v + ' mod2'
-	, 500
+		ret v + ' mod1'
+	, 100
 
-mod12 = (k, v...)->
-	mod1 (a)->
-		mod2 k, a
-	, v
+task3 = new K (ret, v)->
+	ret v + ' mod2'
 
-mod12 console.log, 'test'
+log = (ret, v)->
+	console.log v
 
-mod_1 = K.k (v)->
-	v + ' mod1'
-
-log = K.k console.log
-
-t = K.c [mod_1, mod2, log]
-K.run t, 'test'
-
+K.compose([task1, task2, task3, log]).done()
+new K(task1).c(task2).c(task3).c(log).done()

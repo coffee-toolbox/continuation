@@ -1,21 +1,26 @@
 class K
+	constructor: (@f)->
+		undefined
 
-	@c: (list)->
-		list.reduce (s, e)->
-			(k, v...)->
-				s (a)->
-					e k, a
+	c: (n)->
+		K.compose [this, n]
+
+	@compose: (l)->
+		l.reduce (s, e)->
+			if s instanceof Function
+				s = new K s
+			if e instanceof Function
+				e = new K e
+			new K (k, v...)->
+				s.f (a...)->
+					e.f k, a...
 				, v...
 
-	@k: (f)->
-		(k, v...)->
-			k f v...
+	done: ->
+		@f K.id
 
 	@id: (a)->
 		a
-
-	@run: (f, v...)->
-		f K.id, v...
 
 module.exports =
 	K: K
