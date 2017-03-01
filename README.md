@@ -40,7 +40,7 @@ log = (ret, v)->
 	console.log v
 
 K.compose([task1, task2, task3, log]).done()
-new K(task1).c(task2).c(task3).c(log).done()
+new K(task1).c(task2).c(task3).done(console.log)
 # something
 # something
 # something mod1 mod2

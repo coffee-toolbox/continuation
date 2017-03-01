@@ -1,6 +1,6 @@
 {
   "name": "@coffee-toolbox/continuation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "handle callback in continuation",
   "main": "Continuation.coffee",
   "scripts": {

@@ -16,8 +16,12 @@ class K
 					e.f k, a...
 				, v...
 
-	done: ->
-		@f K.id
+	done: (after)->
+		if after?
+			console.assert after instanceof Function
+			@f after
+		else
+			@f K.id
 
 	@id: (a)->
 		a
