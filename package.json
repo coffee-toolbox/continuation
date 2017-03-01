@@ -11,7 +11,7 @@
     "url": "git+https://github.com/coffee-toolbox/continuation.git"
   },
   "keywords": [
-    "promise", "parallel"
+    "callback", "continuation"
   ],
   "author": "James Ruan <ruanbeihong@gmail.com>",
   "license": "MIT",
@@ -19,12 +19,8 @@
     "url": "https://github.com/coffee-toolbox/continuation/issues"
   },
   "homepage": "https://github.com/coffee-toolbox/continuation#readme",
-  "dependencies": {
-    "@coffee-toolbox/logger": "git+https://github.com/coffee-toolbox/logger.git",
-    "@coffee-toolbox/eventemitter": "git+https://github.com/coffee-toolbox/eventemitter.git"
-  },
   "devDependencies": {
     "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.12.2"
+    "coffee-script": "^1.12.4"
   }
 }
