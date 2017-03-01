@@ -5,6 +5,11 @@ class K
 	c: (n)->
 		K.compose [this, n]
 
+	map: (f)->
+		mapk = new K (k, v...)->
+			k f v...
+		K.compose [@f, mapk]
+
 	@compose: (l)->
 		l.reduce (s, e)->
 			if s instanceof Function

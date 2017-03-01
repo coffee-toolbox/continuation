@@ -5,17 +5,17 @@ task1 = (ret)->
 		ret 'something'
 	, 100
 
-task2 = (ret, v)->
+task2 = new K (ret, v)->
 	console.log v
 	setTimeout ->
 		ret v + ' mod1'
 	, 100
 
-task3 = new K (ret, v)->
-	ret v + ' mod2'
+mod2 = (v)->
+	v + ' mod2'
 
 log = (ret, v)->
 	console.log v
 
-K.compose([task1, task2, task3, log]).done()
-new K(task1).c(task2).c(task3).done(console.log)
+K.compose([task1, task2.map(mod2), log]).done()
+new K(task1).c(task2).map(mod2).c(log).done(console.log)
